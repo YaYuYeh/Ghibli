@@ -11,12 +11,41 @@ class HomeViewController: UIViewController {
 
 //    let ghiblis = ["":"", "":""]
     
+    @IBOutlet weak var testImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getImage { image in
+            DispatchQueue.main.async {
+                self.testImage.image = image
+            }
+            
+        }
+        
     }
+    
+    func getImage(completion: @escaping (UIImage?) -> Void){
+        if let url = URL(string: "https://www.ghibli.jp/gallery/totoro001.jpg"){
+            URLSession.shared.dataTask(with: url) {
+                data, response, error
+                in
+                if let data,
+                   let image = UIImage(data: data){
+                    completion(image)
+                }else{
+                    completion(nil)
+                }
+            }.resume()
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
     
 
     /*

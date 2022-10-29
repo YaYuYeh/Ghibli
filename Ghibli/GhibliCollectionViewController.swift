@@ -10,64 +10,71 @@ import UIKit
 
 class GhibliCollectionViewController: UICollectionViewController {
     
-    let test = ["1","2","3","4","5","6","7","8"]
 
     /*
-     龍貓https://www.ghibli.jp/works/totoro/#frame&gid=1&pid=1
-     神隱少女https://www.ghibli.jp/works/chihiro/#frame&gid=1&pid=1
-     貓的報恩https://www.ghibli.jp/works/baron/#frame&gid=1&pid=1
-     平成貍合戰https://www.ghibli.jp/works/tanuki/#frame&gid=1&pid=1
-     崖上的波妞https://www.ghibli.jp/works/ponyo/#frame&gid=1&pid=1
+     1988龍貓https://www.ghibli.jp/gallery/totoro001.jpg
+     1989魔女宅急便https://www.ghibli.jp/gallery/majo001.jpg
+     1994平成貍合戰https://www.ghibli.jp/gallery/tanuki001.jpg
+     1995心之谷https://www.ghibli.jp/gallery/mimi001.jpg
+     1997魔法公主https://www.ghibli.jp/gallery/mononoke001.jpg
+     2001神隱少女https://www.ghibli.jp/gallery/chihiro001.jpg
+     2002貓的報恩https://www.ghibli.jp/gallery/baron001.jpg
+     2004霍爾的移動城堡https://www.ghibli.jp/gallery/howl001.jpg
+     2008崖上的波妞https://www.ghibli.jp/gallery/ponyo001.jpg
      */
     
     var images = [UIImage]()
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCellSize()
         getAllImages(imgName: "totoro")
-//        print(images)
-
-        
     }
     
-    func getImageFromURL(url:URL?, completion: @escaping (UIImage?) -> Void){
+    var testI = 0   // 測試用
+    //URLSession抓圖
+    func getImageFromURL(url:URL?, completion: @escaping (UIImage?) -> Void) {
         if let url{
-            print("URLSession:\(url)")
             URLSession.shared.dataTask(with: url) {
                 data, response, error
                 in
                 if let data,
-                   let image = UIImage(data: data){
-                    print("completionImage")
+                   let image = UIImage(data: data) {
+                    
+                    DispatchQueue.main.async {
+                        //拿到一個image就reloadㄧ次
+                        self.collectionView.reloadData()
+                    }
                     completion(image)
                 }else{
-                    print("completionNil")
+                    print("URLSession didn't get image")
                     completion(nil)
                 }
             }.resume()
         }
     }
-    
+    //透過URL取得UIImage，並加進陣列中
     func getAllImages(imgName:String){
-        //for i in 1...50{
-            if let url = URL(string: "https://www.ghibli.jp/works/chihiro/#frame&gid=1&pid=1") {
-                print(url)
+        
+        for i in 1...50 {
+            testI = i
+            print("getting image \(testI)")     // 1-50 會先跑完
+            
+            let imgNum = String(format: "%03d.jpg", i)
+            if let url = URL(string: "https://www.ghibli.jp/gallery/totoro\(imgNum)") {
+                
                 getImageFromURL(url: url) { image in
                     if let image{
                         self.images.append(image)
-                        print("getAllImages：\(self.images)")
+                        print("append image \(self.images.count)")
+                    } else {
+                        print("no image yet")
                     }
-               // }
-                
+                }
             }
         }
+        //跑到這裡還沒拿到 image
     }
-    
-    
     
     
     func configureCellSize(){
@@ -89,15 +96,22 @@ class GhibliCollectionViewController: UICollectionViewController {
                           
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return test.count
+        return images.count
     }
                           
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(GhibliCollectionViewCell.self)", for: indexPath) as! GhibliCollectionViewCell
-//        cell.imageView.image = images[indexPath.item]
         cell.imageView.contentMode = .scaleAspectFill
-            
-            
+        
+        DispatchQueue.main.async {
+            if self.images.isEmpty == false{
+//                print("get images array")
+                cell.imageView.image = self.images[indexPath.item]
+            }else{
+//                print("images array is empty")
+            }
+//
+        }
         return cell
     }
         
