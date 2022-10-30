@@ -70,14 +70,6 @@
                                 <rect key="frame" x="36" y="585" width="318" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqS-Gb-XWM">
-                                <rect key="frame" x="87" y="477" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button">
-                                    <backgroundConfiguration key="background"/>
-                                </buttonConfiguration>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,7 +77,6 @@
                     <navigationItem key="navigationItem" id="COU-3H-kmo"/>
                     <connections>
                         <outlet property="logoImage" destination="RFr-uK-D87" id="eL6-W8-t69"/>
-                        <segue destination="Lyv-KT-LwM" kind="show" identifier="PhotoWallCollectionViewController" destinationCreationSelector="passStickerMovie:" id="C44-jh-jzt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -95,7 +86,7 @@
         <!--Photo Wall Collection View Controller-->
         <scene sceneID="dVO-UX-qyj">
             <objects>
-                <collectionViewController id="Lyv-KT-LwM" customClass="PhotoWallCollectionViewController" customModule="Ghibli" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PhotoWallCollectionViewController" id="Lyv-KT-LwM" customClass="PhotoWallCollectionViewController" customModule="Ghibli" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bvx-dp-bpM">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,10 +127,38 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="PRl-jb-fp2"/>
+                    <connections>
+                        <segue destination="ZK6-eY-hSg" kind="show" identifier="showDetail" destinationCreationSelector="showDetail:sender:segueIdentifier:" id="gkt-s2-QJG"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DX-VQ-egV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1149" y="1"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="BcG-GD-76C">
+            <objects>
+                <viewController id="ZK6-eY-hSg" customClass="DetailViewController" customModule="Ghibli" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kXZ-ph-35o">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jth-jw-DWd">
+                                <rect key="frame" x="0.0" y="263" width="390" height="261"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GYB-6T-bsm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="srb-iU-R7w"/>
+                    <connections>
+                        <outlet property="imageView" destination="Jth-jw-DWd" id="I9q-Ak-IKk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYF-Dt-PDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1847.6923076923076" y="0.7109004739336493"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CbK-D6-Bh6">

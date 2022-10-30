@@ -54,7 +54,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
                 getImageFromURL(url: url) { image in
                     if let image{
                         self.images.append(image)
-                        print("append image \(self.images.count)")
+//                        print("append image \(self.images.count)")
                     } else {
                         print("no image yet")
                     }
@@ -102,10 +102,26 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         }
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: nil)
+    }
         
         
+ 
+    @IBSegueAction func showDetail(_ coder: NSCoder, sender: Any?, segueIdentifier: String?) -> DetailViewController? {
+        guard let detailVC = DetailViewController(coder: coder) else {return nil}
+        if let item = collectionView.indexPathsForSelectedItems?.first?.item{
+//            DispatchQueue.main.async {
+                detailVC.imageView.image = self.images[item]
+//            }
+            
+        }
         
+        return detailVC
         
+    }
+    
         
         
         // MARK: UICollectionViewDelegate

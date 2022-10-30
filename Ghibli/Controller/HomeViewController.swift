@@ -47,23 +47,21 @@ class HomeViewController: UIViewController {
     
     
   
-    @IBAction func turnToPhotoWall(_ sender: Any) {
-        performSegue(withIdentifier: "\(PhotoWallCollectionViewController.self)", sender: nil)
+    @IBAction func turnToPhotoWall(_ sender: UIButton) {
+//        performSegue(withIdentifier: "\(PhotoWallCollectionViewController.self)", sender: nil)
+        guard let photoWallCVC = storyboard?.instantiateViewController(withIdentifier: "\(PhotoWallCollectionViewController.self)") as? PhotoWallCollectionViewController else {return}
+        photoWallCVC.movie = movies[sender.tag]
+        print(sender.tag)
+        navigationController?.pushViewController(photoWallCVC, animated: true)
+            
+            
         
         
     }
     
     
     
-    @IBSegueAction func passStickerMovie(_ coder: NSCoder) -> PhotoWallCollectionViewController? {
-        let item = view.tag
-        print(item)
-        let photoWallCVC = PhotoWallCollectionViewController(coder: coder)
-        
-        photoWallCVC?.movie = movies[item]
-        return photoWallCVC
-    }
-    
+
     
     
     
