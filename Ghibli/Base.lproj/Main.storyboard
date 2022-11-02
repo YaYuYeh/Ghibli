@@ -17,66 +17,208 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4ik-Ip-XD3">
-                                <rect key="frame" x="36" y="323" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5SV-dD-dhI">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StickerCollectionViewCell" id="u3y-VZ-044" customClass="StickerCollectionViewCell" customModule="Ghibli" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lfb-Vm-nml">
-                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-IP-xTK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Cu5-IP-xTK" secondAttribute="height" multiplier="1:1" id="eNp-EG-zaL"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
-                                                        <backgroundConfiguration key="background"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5TC-jn-ziw"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Cu5-IP-xTK" firstAttribute="top" secondItem="lfb-Vm-nml" secondAttribute="top" id="Fua-Vb-MmO"/>
-                                                <constraint firstItem="Cu5-IP-xTK" firstAttribute="leading" secondItem="lfb-Vm-nml" secondAttribute="leading" id="d77-mM-e24"/>
-                                                <constraint firstAttribute="bottom" secondItem="Cu5-IP-xTK" secondAttribute="bottom" id="kOZ-7A-wNC"/>
-                                                <constraint firstAttribute="trailing" secondItem="Cu5-IP-xTK" secondAttribute="trailing" id="lhR-89-Gue"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="stickerButton" destination="Cu5-IP-xTK" id="G6E-0h-sWv"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="6MR-sS-IxF"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="83j-vH-Za9"/>
-                                </connections>
-                            </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ghibli_logo" translatesAutoresizingMaskIntoConstraints="NO" id="RFr-uK-D87">
-                                <rect key="frame" x="36" y="585" width="318" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mx9-5y-9Jo">
+                                <rect key="frame" x="15" y="15" width="360" height="814"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="K5c-tb-3OC">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="580"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dgF-ZF-304">
+                                                <rect key="frame" x="0.0" y="0.0" width="360" height="200"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="0.0" id="IFh-Se-LYz">
+                                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterCollectionViewCell" id="Wsc-yF-rP0" customClass="PosterCollectionViewCell" customModule="Ghibli" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="-2" width="128" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="dDA-TA-X0K">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" ambiguous="YES" image="mimi_poster" id="rl8-ee-ZCe">
+                                                                    <rect key="frame" x="-2" y="0.0" width="131" height="110"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </collectionViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="posterImageView" destination="rl8-ee-ZCe" id="z9c-4r-zbl"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="43o-Hd-4hb"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bPj-kX-60h"/>
+                                                </connections>
+                                            </collectionView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="a85-if-dYV">
+                                                <rect key="frame" x="0.0" y="230" width="360" height="350"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Ci-Mm-SjU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="106.66666666666667"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPK-NK-dAq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="106.66666666666667"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="rPK-NK-dAq" secondAttribute="height" multiplier="1:1" id="EHT-mB-sgY"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WlH-TK-hC3"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxe-Qf-563">
+                                                                <rect key="frame" x="126.66666666666666" y="0.0" width="106.66666666666666" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fsg-al-B8P"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1P-2o-Flj">
+                                                                <rect key="frame" x="253.33333333333329" y="0.0" width="106.66666666666666" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iVJ-fm-m2p"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-5a-4nv">
+                                                        <rect key="frame" x="0.0" y="121.66666666666669" width="360" height="106.66666666666669"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMg-54-B62">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3dO-EQ-Gsh"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sl4-vO-9HO">
+                                                                <rect key="frame" x="126.66666666666666" y="0.0" width="106.66666666666666" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nZY-Io-Sse"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAP-1k-x3j">
+                                                                <rect key="frame" x="253.33333333333329" y="0.0" width="106.66666666666666" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rly-hp-9dW"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lp2-j7-laQ">
+                                                        <rect key="frame" x="0.0" y="243.33333333333329" width="360" height="106.66666666666666"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxg-07-hLa">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZF4-O7-dPq"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lx4-o8-YcX">
+                                                                <rect key="frame" x="126.66666666666666" y="0.0" width="106.66666666666666" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="32d-61-KNy"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oE-jx-c8k">
+                                                                <rect key="frame" x="253.33333333333329" y="0.0" width="106.66666666666666" height="106.66666666666667"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background" image="baron_sticker" strokeWidth="5">
+                                                                        <color key="strokeColor" systemColor="systemBrownColor"/>
+                                                                    </backgroundConfiguration>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="turnToPhotoWall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mI0-WH-iCY"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="oMg-54-B62" firstAttribute="width" secondItem="rPK-NK-dAq" secondAttribute="height" multiplier="1:1" id="Lx7-Im-xNb"/>
+                                                    <constraint firstItem="bxg-07-hLa" firstAttribute="width" secondItem="oMg-54-B62" secondAttribute="height" multiplier="1:1" id="n33-Ap-Pm6"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ghibli_logo" translatesAutoresizingMaskIntoConstraints="NO" id="5l6-jh-vn1">
+                                        <rect key="frame" x="0.0" y="590" width="360" height="224"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.90319309631983435" green="0.76804118682138067" blue="0.5789320150852818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mx9-5y-9Jo" secondAttribute="bottom" constant="15" id="5xy-jh-XfS"/>
+                            <constraint firstAttribute="trailing" secondItem="mx9-5y-9Jo" secondAttribute="trailing" constant="15" id="NIx-jf-DFc"/>
+                            <constraint firstItem="mx9-5y-9Jo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="lWP-uR-awd"/>
+                            <constraint firstItem="mx9-5y-9Jo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="15" id="u8I-22-LWh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="COU-3H-kmo"/>
                     <connections>
-                        <outlet property="logoImage" destination="RFr-uK-D87" id="eL6-W8-t69"/>
+                        <outletCollection property="stickerButtons" destination="Lx4-o8-YcX" collectionClass="NSMutableArray" id="vOK-ym-fp1"/>
+                        <outletCollection property="stickerButtons" destination="sl4-vO-9HO" collectionClass="NSMutableArray" id="vRo-U8-u4v"/>
+                        <outletCollection property="stickerButtons" destination="rPK-NK-dAq" collectionClass="NSMutableArray" id="w5f-UA-Wff"/>
+                        <outletCollection property="stickerButtons" destination="3oE-jx-c8k" collectionClass="NSMutableArray" id="Vb2-a4-No7"/>
+                        <outletCollection property="stickerButtons" destination="dAP-1k-x3j" collectionClass="NSMutableArray" id="m3r-nh-czZ"/>
+                        <outletCollection property="stickerButtons" destination="oMg-54-B62" collectionClass="NSMutableArray" id="4i1-dp-na9"/>
+                        <outletCollection property="stickerButtons" destination="bxg-07-hLa" collectionClass="NSMutableArray" id="0xE-t7-PfO"/>
+                        <outletCollection property="stickerButtons" destination="vxe-Qf-563" collectionClass="NSMutableArray" id="LdL-y8-iTu"/>
+                        <outletCollection property="stickerButtons" destination="Y1P-2o-Flj" collectionClass="NSMutableArray" id="Wzo-LW-q1D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -181,8 +323,13 @@
     </scenes>
     <resources>
         <image name="Ghibli_logo" width="1000" height="480"/>
+        <image name="baron_sticker" width="1000" height="1000"/>
+        <image name="mimi_poster" width="899" height="1280"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A1E76EC2912211E00324C0F /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1E76EB2912211E00324C0F /* PosterCollectionViewCell.swift */; };
 		841233282908458B00CDCEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841233272908458B00CDCEE2 /* AppDelegate.swift */; };
 		8412332A2908458B00CDCEE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841233292908458B00CDCEE2 /* SceneDelegate.swift */; };
 		8412332F2908458B00CDCEE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8412332D2908458B00CDCEE2 /* Main.storyboard */; };
@@ -14,14 +15,13 @@
 		841233342908458C00CDCEE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841233322908458C00CDCEE2 /* LaunchScreen.storyboard */; };
 		84130097290D87C2009134BF /* Ghibli.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84130096290D87C2009134BF /* Ghibli.swift */; };
 		8413009F290D8AD3009134BF /* PhotoWallCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413009E290D8AD3009134BF /* PhotoWallCollectionViewController.swift */; };
-		841300A5290D9049009134BF /* StickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841300A4290D9049009134BF /* StickerCollectionViewCell.swift */; };
-		841300AF290D9543009134BF /* HomeViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841300AE290D9543009134BF /* HomeViewController + Extension.swift */; };
 		841300B1290D9B3F009134BF /* PhotoWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841300B0290D9B3F009134BF /* PhotoWallCollectionViewCell.swift */; };
 		84D9203C290EEA91003522E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9203B290EEA91003522E4 /* DetailViewController.swift */; };
 		84FCC2D6290AB8C200702A64 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC2D5290AB8C200702A64 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A1E76EB2912211E00324C0F /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		841233242908458B00CDCEE2 /* Ghibli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghibli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841233272908458B00CDCEE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		841233292908458B00CDCEE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,8 +31,6 @@
 		841233352908458C00CDCEE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84130096290D87C2009134BF /* Ghibli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghibli.swift; sourceTree = "<group>"; };
 		8413009E290D8AD3009134BF /* PhotoWallCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallCollectionViewController.swift; sourceTree = "<group>"; };
-		841300A4290D9049009134BF /* StickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerCollectionViewCell.swift; sourceTree = "<group>"; };
-		841300AE290D9543009134BF /* HomeViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController + Extension.swift"; sourceTree = "<group>"; };
 		841300B0290D9B3F009134BF /* PhotoWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallCollectionViewCell.swift; sourceTree = "<group>"; };
 		84D9203B290EEA91003522E4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		84FCC2D5290AB8C200702A64 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				84130096290D87C2009134BF /* Ghibli.swift */,
-				841300AE290D9543009134BF /* HomeViewController + Extension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				841300B0290D9B3F009134BF /* PhotoWallCollectionViewCell.swift */,
-				841300A4290D9049009134BF /* StickerCollectionViewCell.swift */,
+				6A1E76EB2912211E00324C0F /* PosterCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,10 +182,9 @@
 				8413009F290D8AD3009134BF /* PhotoWallCollectionViewController.swift in Sources */,
 				84130097290D87C2009134BF /* Ghibli.swift in Sources */,
 				841233282908458B00CDCEE2 /* AppDelegate.swift in Sources */,
+				6A1E76EC2912211E00324C0F /* PosterCollectionViewCell.swift in Sources */,
 				8412332A2908458B00CDCEE2 /* SceneDelegate.swift in Sources */,
-				841300AF290D9543009134BF /* HomeViewController + Extension.swift in Sources */,
 				84FCC2D6290AB8C200702A64 /* HomeViewController.swift in Sources */,
-				841300A5290D9049009134BF /* StickerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
