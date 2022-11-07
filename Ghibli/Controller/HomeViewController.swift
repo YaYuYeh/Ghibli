@@ -9,22 +9,21 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet var stickerButtons: [UIButton]!
+    @IBOutlet var stickerLabels: [UILabel]!
     
-    @IBOutlet weak var testBtn: UIButton!
+    @IBOutlet weak var posterCollectionView: UICollectionView!
+    let stickers = ["となりのトトロ", "魔女の宅急便", "平成狸合戦ぽんぽこ", "耳をすませば", "もののけ姫", "千と千尋の神隠し", "猫の恩返し", "ハウルの動く城", "崖の上のポニョ"]
+
     
-    //    let ghiblis = ["":"", "":""]    
     var movies = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
-        
-        
         getAllMovies()
         putStickers()
+        navigationItem.title = "スタジオジブリ"
+        
     }
   
     
@@ -38,35 +37,22 @@ class HomeViewController: UIViewController {
     
     func putStickers(){
         for i in movies.indices {
-        let stickerImage = UIImage(named: "\(movies[i])_sticker")
-                    
-        stickerButtons[i].configuration?.background.image = stickerImage
-        stickerButtons[i].tag = i
+            let stickerImage = UIImage(named: "\(movies[i])_sticker")
+            stickerButtons[i].configuration?.background.image = stickerImage
+            stickerButtons[i].tag = i
+            stickerLabels[i].text = stickers[i]
         }
     }
     
     
     @IBAction func turnToPhotoWall(_ sender: UIButton) {
-//        performSegue(withIdentifier: "\(PhotoWallCollectionViewController.self)", sender: nil)
         guard let photoWallCVC = storyboard?.instantiateViewController(withIdentifier: "\(PhotoWallCollectionViewController.self)") as? PhotoWallCollectionViewController else {return}
         photoWallCVC.movie = movies[sender.tag]
         print(sender.tag)
         navigationController?.pushViewController(photoWallCVC, animated: true)
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -78,16 +64,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let posterImage = UIImage(named: "\(movies[indexPath.item])_poster")
         cell.posterImageView.image = posterImage
         cell.posterImageView.contentMode = .scaleAspectFill
-        cell.posterImageView.layer.cornerRadius = 20
+        cell.posterImageView.layer.cornerRadius = 10
         cell.posterImageView.clipsToBounds = true
         return cell
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.size.width / 2
-        let cellSize = CGSize(width: width, height: width * 1.5)
-        print("cell:\(cellSize)")
-        return cellSize
     }
 }
