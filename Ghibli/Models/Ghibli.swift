@@ -22,4 +22,3 @@ import Foundation
 enum Ghibli:String, CaseIterable{
     case totoro, majo, tanuki, mimi, mononoke, chihiro, baron, howl, ponyo
 }
-

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A1E76EC2912211E00324C0F /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1E76EB2912211E00324C0F /* PosterCollectionViewCell.swift */; };
+		6AC403BE2919E46500E4891C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC403BD2919E46500E4891C /* ImageViewController.swift */; };
 		841233282908458B00CDCEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841233272908458B00CDCEE2 /* AppDelegate.swift */; };
 		8412332A2908458B00CDCEE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841233292908458B00CDCEE2 /* SceneDelegate.swift */; };
 		8412332F2908458B00CDCEE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8412332D2908458B00CDCEE2 /* Main.storyboard */; };
@@ -18,12 +19,12 @@
 		841300B1290D9B3F009134BF /* PhotoWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841300B0290D9B3F009134BF /* PhotoWallCollectionViewCell.swift */; };
 		84B207FB291967CD004C9E3F /* RiiTegakiFude.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84B207FA291967CD004C9E3F /* RiiTegakiFude.otf */; };
 		84B207FD29196BC5004C9E3F /* crayon_1-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B207FC29196BC5004C9E3F /* crayon_1-1.ttf */; };
-		84D9203C290EEA91003522E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9203B290EEA91003522E4 /* DetailViewController.swift */; };
 		84FCC2D6290AB8C200702A64 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC2D5290AB8C200702A64 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A1E76EB2912211E00324C0F /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
+		6AC403BD2919E46500E4891C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		841233242908458B00CDCEE2 /* Ghibli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghibli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841233272908458B00CDCEE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		841233292908458B00CDCEE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		841300B0290D9B3F009134BF /* PhotoWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWallCollectionViewCell.swift; sourceTree = "<group>"; };
 		84B207FA291967CD004C9E3F /* RiiTegakiFude.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RiiTegakiFude.otf; sourceTree = "<group>"; };
 		84B207FC29196BC5004C9E3F /* crayon_1-1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "crayon_1-1.ttf"; sourceTree = "<group>"; };
-		84D9203B290EEA91003522E4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		84FCC2D5290AB8C200702A64 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +98,7 @@
 			children = (
 				84FCC2D5290AB8C200702A64 /* HomeViewController.swift */,
 				8413009E290D8AD3009134BF /* PhotoWallCollectionViewController.swift */,
-				84D9203B290EEA91003522E4 /* DetailViewController.swift */,
+				6AC403BD2919E46500E4891C /* ImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D9203C290EEA91003522E4 /* DetailViewController.swift in Sources */,
+				6AC403BE2919E46500E4891C /* ImageViewController.swift in Sources */,
 				841300B1290D9B3F009134BF /* PhotoWallCollectionViewCell.swift in Sources */,
 				8413009F290D8AD3009134BF /* PhotoWallCollectionViewController.swift in Sources */,
 				84130097290D87C2009134BF /* Ghibli.swift in Sources */,

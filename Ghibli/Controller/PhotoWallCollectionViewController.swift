@@ -15,6 +15,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         configureCellSize()
         getAllImages(imgName: movie)
+        navigationItem.title = movie
     }
     
     var testI = 0   // 測試用
@@ -54,7 +55,6 @@ class PhotoWallCollectionViewController: UICollectionViewController {
                 getImageFromURL(url: url) { image in
                     if let image{
                         self.images.append(image)
-//                        print("append image \(self.images.count)")
                     } else {
                         print("no image yet")
                     }
@@ -93,12 +93,9 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         
         DispatchQueue.main.async {
             if self.images.isEmpty == false{
-//                print("get images array")
                 cell.imageView.image = self.images[indexPath.item]
             }else{
-//                print("images array is empty")
             }
-//
         }
         return cell
     }
@@ -108,14 +105,11 @@ class PhotoWallCollectionViewController: UICollectionViewController {
     }
         
         
-    @IBSegueAction func showDetail(_ coder: NSCoder, sender: Any?, segueIdentifier: String?) -> DetailViewController? {
-        guard let detailVC = DetailViewController(coder: coder) else {return nil}
+    @IBSegueAction func showDetail(_ coder: NSCoder, sender: Any?, segueIdentifier: String?) -> ImageViewController? {
+        guard let detailVC = ImageViewController(coder: coder) else {return nil}
         if let item = collectionView.indexPathsForSelectedItems?.first?.item{
-                detailVC.imageView.image = self.images[item]
-
+                detailVC.detailImage = self.images[item]
         }
-        
         return detailVC
-        
     }
 }
