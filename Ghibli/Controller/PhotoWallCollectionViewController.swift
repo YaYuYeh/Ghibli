@@ -15,10 +15,37 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         configureCellSize()
         getAllImages(imgName: movie)
-        navigationItem.title = movie
+        
+        if let movie{
+            switch movie{
+            case Ghibli.totoro.rawValue:
+                navigationItem.title = "となりのトトロ"
+            case Ghibli.majo.rawValue:
+                navigationItem.title = "魔女の宅急便"
+            case Ghibli.tanuki.rawValue:
+                navigationItem.title = "平成狸合戦ぽんぽこ"
+            case Ghibli.mimi.rawValue:
+                navigationItem.title = "耳をすませば"
+            case Ghibli.mononoke.rawValue:
+                navigationItem.title = "もののけ姫"
+            case Ghibli.chihiro.rawValue:
+                navigationItem.title = "千と千尋の神隠し"
+            case Ghibli.baron.rawValue:
+                navigationItem.title = "猫の恩返し"
+            case Ghibli.howl.rawValue:
+                navigationItem.title = "ハウルの動く城"
+            case Ghibli.ponyo.rawValue:
+                navigationItem.title = "崖の上のポニョ"
+            default:
+                break
+            }
+        }
     }
     
     var testI = 0   // 測試用
+
+ 
+    
     //URLSession抓圖
     func getImageFromURL(url:URL?, completion: @escaping (UIImage?) -> Void) {
         if let url{
@@ -44,14 +71,12 @@ class PhotoWallCollectionViewController: UICollectionViewController {
     
     //透過URL取得UIImage，並加進陣列中
     func getAllImages(imgName:String){
-        
         for i in 1...50 {
             testI = i
 //            print("getting image \(testI)") // 1-50 會先跑完
             
             let imgNum = String(format: "%03d.jpg", i)
             if let url = URL(string: "https://www.ghibli.jp/gallery/\(imgName)\(imgNum)") {
-//                print(url)
                 getImageFromURL(url: url) { image in
                     if let image{
                         self.images.append(image)

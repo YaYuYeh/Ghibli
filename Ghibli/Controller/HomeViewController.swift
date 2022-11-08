@@ -11,7 +11,6 @@ class HomeViewController: UIViewController {
 
     @IBOutlet var stickerButtons: [UIButton]!
     @IBOutlet var stickerLabels: [UILabel]!
-    
     @IBOutlet weak var posterCollectionView: UICollectionView!
     let stickers = ["となりのトトロ", "魔女の宅急便", "平成狸合戦ぽんぽこ", "耳をすませば", "もののけ姫", "千と千尋の神隠し", "猫の恩返し", "ハウルの動く城", "崖の上のポニョ"]
 
