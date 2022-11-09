@@ -9,42 +9,47 @@ import UIKit
 
 class PhotoWallCollectionViewController: UICollectionViewController {
     var images = [UIImage]()
-    var movie:String!
+    var ghibli:Ghibli!
+    var testI = 0   // 測試用
+    let loadingIndicator = UIActivityIndicatorView()
+    let loadingView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAllImages(imgName: ghibli.picture)
+        addLoadingView()
         configureCellSize()
-        getAllImages(imgName: movie)
         
-        if let movie{
-            switch movie{
-            case Ghibli.totoro.rawValue:
-                navigationItem.title = "となりのトトロ"
-            case Ghibli.majo.rawValue:
-                navigationItem.title = "魔女の宅急便"
-            case Ghibli.tanuki.rawValue:
-                navigationItem.title = "平成狸合戦ぽんぽこ"
-            case Ghibli.mimi.rawValue:
-                navigationItem.title = "耳をすませば"
-            case Ghibli.mononoke.rawValue:
-                navigationItem.title = "もののけ姫"
-            case Ghibli.chihiro.rawValue:
-                navigationItem.title = "千と千尋の神隠し"
-            case Ghibli.baron.rawValue:
-                navigationItem.title = "猫の恩返し"
-            case Ghibli.howl.rawValue:
-                navigationItem.title = "ハウルの動く城"
-            case Ghibli.ponyo.rawValue:
-                navigationItem.title = "崖の上のポニョ"
-            default:
-                break
-            }
+        navigationItem.title = ghibli.title
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if images.count == 50{
+            loadingView.removeFromSuperview()
         }
     }
     
-    var testI = 0   // 測試用
-
- 
+    func addLoadingView(){
+        let viewSize = view.bounds.size
+        //設定與主view相同大小(填滿)
+        loadingView.frame = CGRect(x: 0, y: 0, width: viewSize.width, height: viewSize.height)
+        //加入遮擋view
+        view.addSubview(loadingView)
+            
+        //設定與主view相同大小(置中)
+        loadingIndicator.frame = CGRect(x: 0, y: 0, width: viewSize.width, height: viewSize.height)
+        //設定動畫
+        loadingIndicator.startAnimating()
+        //設定樣式:Medium、Large、Large White、White、Gray
+        loadingIndicator.style = .large
+        //設定顏色
+        loadingIndicator.color = .systemPink
+        //設定背景顏色(也可直接設定view的背景顏色)
+        loadingIndicator.backgroundColor = .white
+        loadingView.addSubview(loadingIndicator)
+    }
+    
     
     //URLSession抓圖
     func getImageFromURL(url:URL?, completion: @escaping (UIImage?) -> Void) {
@@ -68,13 +73,11 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         }
     }
     
-    
     //透過URL取得UIImage，並加進陣列中
     func getAllImages(imgName:String){
         for i in 1...50 {
             testI = i
 //            print("getting image \(testI)") // 1-50 會先跑完
-            
             let imgNum = String(format: "%03d.jpg", i)
             if let url = URL(string: "https://www.ghibli.jp/gallery/\(imgName)\(imgNum)") {
                 getImageFromURL(url: url) { image in
@@ -86,9 +89,8 @@ class PhotoWallCollectionViewController: UICollectionViewController {
                 }
             }
         }
-        //跑到這裡還沒拿到 image
+//        跑到這裡還沒拿到 image
     }
-    
     
     func configureCellSize(){
         //cell間距
@@ -104,10 +106,10 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         flowLayout?.estimatedItemSize = .zero
         flowLayout?.minimumLineSpacing = itemSpace
         flowLayout?.minimumInteritemSpacing = itemSpace
-        
     }
-                          
-    // MARK: UICollectionViewDataSource
+              
+    
+    // MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
@@ -125,6 +127,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetail", sender: nil)
     }

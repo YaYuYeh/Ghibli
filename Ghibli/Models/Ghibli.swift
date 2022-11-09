@@ -19,6 +19,12 @@ import Foundation
  2008崖上的波妞/崖の上のポニョ https://www.ghibli.jp/gallery/ponyo001.jpg
  */
 
-enum Ghibli:String, CaseIterable{
-    case totoro, majo, tanuki, mimi, mononoke, chihiro, baron, howl, ponyo
+//totoro, majo, tanuki, mimi, mononoke, chihiro, baron, howl, ponyo
+
+struct Ghibli{
+    let title:String
+    let released:String
+    let picture:String
+    let trailer:String
 }
+
