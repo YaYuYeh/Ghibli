@@ -12,33 +12,20 @@ class PhotoWallCollectionViewController: UICollectionViewController {
     var ghibli:Ghibli!
     var testI = 0   // 測試用
     let loadingIndicator = UIActivityIndicatorView()
-    let loadingView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllImages(imgName: ghibli.picture)
         addLoadingView()
         configureCellSize()
-        
         navigationItem.title = ghibli.title
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        if images.count == 50{
-            loadingView.removeFromSuperview()
-        }
-    }
-    
+    //產生載入器
     func addLoadingView(){
         let viewSize = view.bounds.size
-        //設定與主view相同大小(填滿)
-        loadingView.frame = CGRect(x: 0, y: 0, width: viewSize.width, height: viewSize.height)
-        //加入遮擋view
-        view.addSubview(loadingView)
-            
-        //設定與主view相同大小(置中)
-        loadingIndicator.frame = CGRect(x: 0, y: 0, width: viewSize.width, height: viewSize.height)
+        //設定與主view的尺寸&位置相同(置中填滿)
+        loadingIndicator.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         //設定動畫
         loadingIndicator.startAnimating()
         //設定樣式:Medium、Large、Large White、White、Gray
@@ -47,7 +34,9 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         loadingIndicator.color = .systemPink
         //設定背景顏色(也可直接設定view的背景顏色)
         loadingIndicator.backgroundColor = .white
-        loadingView.addSubview(loadingIndicator)
+        loadingIndicator.hidesWhenStopped = true
+        //在主view加入載入器
+        view.addSubview(loadingIndicator)
     }
     
     
@@ -92,6 +81,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
 //        跑到這裡還沒拿到 image
     }
     
+    //設定cell大小&位置
     func configureCellSize(){
         //cell間距
         let itemSpace: Double = 4
@@ -119,9 +109,11 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         cell.imageView.contentMode = .scaleAspectFill
         
         DispatchQueue.main.async {
-            if self.images.isEmpty == false{
+            if self.images.count == 50{
                 cell.imageView.image = self.images[indexPath.item]
-            }else{
+                //取得所有照片後，移除載入器
+                self.loadingIndicator.stopAnimating()
+                self.loadingIndicator.removeFromSuperview()
             }
         }
         return cell
