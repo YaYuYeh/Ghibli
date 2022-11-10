@@ -11,6 +11,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
     var images = [UIImage]()
     var ghibli:Ghibli!
     var testI = 0   // 測試用
+    //產生載入中圖示的指示器
     let loadingIndicator = UIActivityIndicatorView()
     
     //MARK: - ViewLifeCycle
@@ -22,7 +23,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         navigationItem.title = ghibli.title
     }
     
-    //產生載入器
+    //設定指示器樣式並加入主view
     func addLoadingView(){
         //設定與主view的尺寸&位置相同(置中填滿)
         loadingIndicator.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
@@ -35,7 +36,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         //設定背景顏色(也可直接設定view的背景顏色)
         loadingIndicator.backgroundColor = .white
         loadingIndicator.hidesWhenStopped = true
-        //在主view加入載入器
+        //在主view加入指示器
         view.addSubview(loadingIndicator)
     }
     
@@ -111,7 +112,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
         DispatchQueue.main.async {
             if self.images.count == 50{
                 cell.imageView.image = self.images[indexPath.item]
-                //取得所有照片後，移除載入器
+                //取得所有照片後，移除指示器
                 self.loadingIndicator.stopAnimating()
                 self.loadingIndicator.removeFromSuperview()
             }
