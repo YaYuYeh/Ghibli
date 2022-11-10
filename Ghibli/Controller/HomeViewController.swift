@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         Ghibli(title: "崖の上のポニョ", released: "2008", picture: "ponyo", trailer: "6WlVvl8hK5M")
     ]
     
-    
+    //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         //捲動時不顯示下方卷軸
@@ -62,8 +62,6 @@ class HomeViewController: UIViewController {
         }
         return trailerVC
     }
-    
-    
 }
 
 

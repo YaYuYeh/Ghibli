@@ -13,6 +13,7 @@ class PhotoWallCollectionViewController: UICollectionViewController {
     var testI = 0   // 測試用
     let loadingIndicator = UIActivityIndicatorView()
     
+    //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllImages(imgName: ghibli.picture)
@@ -23,7 +24,6 @@ class PhotoWallCollectionViewController: UICollectionViewController {
     
     //產生載入器
     func addLoadingView(){
-        let viewSize = view.bounds.size
         //設定與主view的尺寸&位置相同(置中填滿)
         loadingIndicator.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         //設定動畫
